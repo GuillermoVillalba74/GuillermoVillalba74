@@ -6,9 +6,9 @@ public class User {
 
     private String name;
 
-    private Double money;
+    private Double budget;
 
-    private Double time;
+    private Double availability;
     
     private ArrayList<Attractions> UserAtttractions = new ArrayList();
     
@@ -19,8 +19,8 @@ public class User {
 
     public User(String name, Double budget, Double availability) {
         this.name = name;
-        this.money = budget;
-        this.time = availability;
+        this.budget = budget;
+        this.availability = availability;
     }
 
     public String getName() {
@@ -32,19 +32,19 @@ public class User {
     }
 
     public Double getBudget() {
-        return money;
+        return budget;
     }
 
     public void setBudget(Double budget) {
-        this.money = budget;
+        this.budget = budget;
     }
 
     public Double getAvailability() {
-        return time;
+        return availability;
     }
 
     public void setAvailability(Double availability) {
-        this.time = availability;
+        this.availability = availability;
     }
 
     public ArrayList<Attractions> getUserAtttractions() {
@@ -65,21 +65,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", budget=" + money + ", availability=" + time + ", UserAtttractions=" + UserAtttractions + ", UserPromotions=" + UserPromotions + '}';
+        return "User{" + "name=" + name + ", budget=" + budget + ", availability=" + availability + ", UserAtttractions=" + UserAtttractions + ", UserPromotions=" + UserPromotions + '}';
     }
-
-	public boolean hasProduct(Product p) {
-		// TODO Auto-generated method stub
-		return this.UserAtttractions.contains(p);
-	}
-
-	public boolean hasMoney(Product p) {
-		return this.money>=p.getCost();
-	}
-
-	public boolean hasTime(Product p) {
-		return this.time>=p.getTime();
-	}
 
     
     

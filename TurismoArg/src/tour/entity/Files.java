@@ -9,47 +9,45 @@ import java.util.List;
 
 public class Files {
 
-	private File userFile;
+    private File userFile;
 
-	private File attractionsFile;
+    private File attractionsFile;
 
-	private File packsFile;
-
-	public List<User> readUsers(String path)  {
-		FileReader fr = null;
-		BufferedReader br = null;
-		List<User> users = new ArrayList();
-		try {
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
-			String linea = br.readLine();
-			linea = br.readLine();
-			while (linea != null) {
-				String[] datos = linea.split(";");
-				String name = datos[0];
-				Double budget = Double.parseDouble(datos[1]);
-				Double availability = Double.parseDouble(datos[2]);
-
-				// Color color = Color.valueOf(datos[3].toUpperCase());
-				users.add(new User(name, budget, availability));
-				linea = br.readLine();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				fr.close();
-				br.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
-		return users;
-
+    private File packsFile;
+    
+    
+    
+    public List<User> readUsers(String path){
+        FileReader fr = null;
+	BufferedReader br = null;
+	List<User> users= new ArrayList();
+        try {
+            fr=new FileReader (path);
+            br= new BufferedReader(fr);
+            String linea =br.readLine();
+            linea=br.readLine();
+            while(linea!=null) {
+                String [] datos= linea.split(";");
+		String name= datos[0];
+		Double budget = Double.parseDouble(datos[1]);
+		Double availability= Double.parseDouble(datos[2]);
+                
+                //Color color = Color.valueOf(datos[3].toUpperCase());
+		users.add(new User(name, budget, availability));
+		linea=br.readLine();
 	}
-
+	}catch (IOException e) {
+		e.printStackTrace();
+	}finally {
+		if (fr != null) {
+			
+		}
+	}
+        return users;
+        
+        
+    }
+    
 //    public List<User> readPacks(String path){
 //        FileReader fr = null;
 //	BufferedReader br = null;
@@ -79,7 +77,7 @@ public class Files {
 //        
 //        
 //    }
-
+    
 //      public List<User> printItinerary(String path){
 //          
 //          return itinerary;
